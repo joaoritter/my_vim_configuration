@@ -1,0 +1,3 @@
+read my .vimrc to see how my vim is configured. 
+If you want, you can copy the file into your home directly to use it, although you will ahve to install the plugins seperately with vundle. 
+
