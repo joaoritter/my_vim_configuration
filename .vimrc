@@ -1,6 +1,7 @@
 set shell=/bin/bash
 
 set nocompatible              " be iMproved, required
+set hidden
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -60,23 +61,27 @@ map <leader>: :newtab ~/.vimrc<cr>
 "indent lines custom
 let g:indent_guides_guide_size = 1
 
-"diable arrow keys in insert mode
+"disable arrow keys in insert mode
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+
 " control-Q to quit
 nnoremap Q <nop>
 nnoremap <C-q> :q<cr>
 
-" space, backspe, and enter enters insert mode
+" select pasted
+nnoremap gp '[v']
+
+" space, backsace, and enter enters insert mode
 nnoremap <space> a
 nnoremap <BS> i<BS>
 nnoremap <CR> i<CR><Esc>
 
 " no more s
-noremap s <nop>
-noremap c <nop>
+" noremap s <nop>
+" noremap c <nop>
 
 " 'a' saves
 nnoremap a :w!<cr>
@@ -180,6 +185,9 @@ map k gk
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
 
+" tab works
+nnoremap <tab> i<tab>
+
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>tc :tabclose<cr>
@@ -188,6 +196,9 @@ map <leader>d :tabn<cr>
 map <leader>s :tabp<cr>
 map <leader>f :tablast<cr>
 map <leader>a :tabfirst<cr>
+
+"list buffers
+map <leader>l :ls<cr>
 
 " this turns buffers into tabs
 map <leader>tb :tab ball<cr>
