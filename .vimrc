@@ -18,11 +18,15 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ervandew/supertab'
+
+"<leader><leader>w
 Bundle 'sjl/gundo.vim'
 Bundle 'bling/vim-airline'
 Bundle 'vim-scripts/tComment'
 Bundle 'tpope/vim-surround'
-Bundle 'msanders/snipmate.vim'
+"Bundle 'msanders/snipmate.vim'
+"^^ doesnt work at the same time as supertab.
 Bundle 'tpope/vim-abolish'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -97,6 +101,9 @@ nnoremap <leader>w :NERDTree<CR>
 
 " 'e enters gundo
 nnoremap <leader>e :GundoToggle<CR>
+
+" 'r enters Tlist
+nnoremap <leader>r :TlistToggle<CR>
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
