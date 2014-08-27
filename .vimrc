@@ -65,6 +65,12 @@ map <leader>: :newtab ~/.vimrc<cr>
 "indent lines custom
 let g:indent_guides_guide_size = 1
 
+" automatically close open curly brace
+inoremap { {}<Left> 
+inoremap {<CR> {<CR>}<Esc>O 
+inoremap {{ {
+inoremap {} {}
+
 "disable arrow keys in insert mode
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -83,9 +89,8 @@ nnoremap <space> a
 nnoremap <BS> i<BS>
 nnoremap <CR> i<CR><Esc>
 
-" no more s
-" noremap s <nop>
-" noremap c <nop>
+"map s to easymotion
+nmap s <Plug>(easymotion-s)
 
 " 'a' saves
 nnoremap a :w!<cr>
@@ -195,14 +200,20 @@ map <leader>ba :1,1000 bd!<cr>
 " tab works
 nnoremap <tab> i<tab>
 
+
+
+" i dont really use tabs anymore, so im going to repurpose the commands
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr>
-map <leader>d :tabn<cr>
-map <leader>s :tabp<cr>
-map <leader>f :tablast<cr>
-map <leader>a :tabfirst<cr>
+" map <leader>tn :tabnew<cr>
+" map <leader>tc :tabclose<cr>
+" map <leader>tm :tabmove<cr>
+" map <leader>d :tabn<cr>
+" map <leader>s :tabp<cr>
+" map <leader>f :tablast<cr>
+" map <leader>a :tabfirst<cr>
+
+" go to matching curly brace
+map <leader>s %
 
 "list buffers
 map <leader>l :ls<cr>
