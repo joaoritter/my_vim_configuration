@@ -32,6 +32,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'Keithbsmiley/swift.vim'
 Bundle 'mjbrownie/pythoncomplete.vim'
 Bundle 'ehamberg/vim-cute-python'
 "rarely used
@@ -62,12 +63,16 @@ set mat=2
 map <leader>; :e ~/.vimrc<cr>
 map <leader>: :newtab ~/.vimrc<cr>
 
+"complete html tags with </
+inoremap >> ></<C-X><C-O><Esc>%i<cr><cr><Esc>ki<tab><tab>
+inoremap << </<C-X><C-O>
+
 "indent lines custom
 let g:indent_guides_guide_size = 1
 
 " automatically close open curly brace
 inoremap { {}<Left> 
-inoremap {<CR> {<CR>}<Esc>O 
+inoremap {<CR> {<CR>}<Esc>O<Left> 
 inoremap {{ {
 inoremap {} {}
 
@@ -95,11 +100,14 @@ nmap s <Plug>(easymotion-s)
 " 'a' saves
 nnoremap a :w!<cr>
 
-" control-d enters normal mode
-nnoremap <C-d> <Esc>
-vnoremap <C-d> <Esc>gV
-onoremap <C-d> <Esc>
-inoremap <C-d> <Esc>`^
+" control-a enters normal mode
+nnoremap <C-a> <Esc>
+
+" control-d enters normal mode and saves
+nnoremap <C-d> <Esc>:w!<cr>
+vnoremap <C-d> <Esc>gV:w!<cr>
+onoremap <C-d> <Esc>:w!<cr>
+inoremap <C-d> <Esc>`^:w!<cr>
 
 " 'w enters nerdtree
 nnoremap <leader>w :NERDTree<CR>
@@ -185,17 +193,17 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
+" " Visual mode pressing * or # searches for the current selection
+" " Super useful! From an idea by Michael Naumann
+" vnoremap <silent> * :call VisualSelection('f')<CR>
+" vnoremap <silent> # :call VisualSelection('b')<CR>
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
 " Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
+map <leader>ca :1,1000 bd!<cr>
 
 " tab works
 nnoremap <tab> i<tab>
@@ -207,8 +215,8 @@ nnoremap <tab> i<tab>
 " map <leader>tn :tabnew<cr>
 " map <leader>tc :tabclose<cr>
 " map <leader>tm :tabmove<cr>
-" map <leader>d :tabn<cr>
-" map <leader>s :tabp<cr>
+map <leader>d :tabn<cr>
+map <leader>s :tabp<cr>
 " map <leader>f :tablast<cr>
 " map <leader>a :tabfirst<cr>
 
@@ -225,8 +233,16 @@ map <leader>tb :tab ball<cr>
 " Super useful when editing files in the same directory
 map <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
 
+" autocomplete like fish
+inoremap <C-f> <C-n>
+
 " rotate buffers
-map <leader>b :bn<cr>
+map <C-b> :bn<cr>
+map <C-n> :bp<cr>
+
+nnoremap <C-f> <nop>
+
+
 
 " new buffer with file
 map <leader>n :e <c-r>=expand("%:p:h")<cr>/
