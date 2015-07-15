@@ -34,7 +34,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Keithbsmiley/swift.vim'
 Bundle 'mjbrownie/pythoncomplete.vim'
-Bundle 'ehamberg/vim-cute-python'
+" Bundle 'ehamberg/vim-cute-python'
 "rarely used
 
 
